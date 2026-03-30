@@ -1,0 +1,31 @@
+<div class="card">
+  <h2>{{ title }}</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="saveTask()" class="task-form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title" />
+      @if (taskForm.controls.title.touched && taskForm.controls.title.invalid) {
+        <div class="error">Title is required and must be at most 200 characters.</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" rows="4" formControlName="description"></textarea>
+      @if (taskForm.controls.description.touched && taskForm.controls.description.invalid) {
+        <div class="error">Description must be at most 1000 characters.</div>
+      }
+    </div>
+
+    <div class="form-group checkbox-row">
+      <input id="isCompleted" type="checkbox" formControlName="isCompleted" />
+      <label for="isCompleted">Completed</label>
+    </div>
+
+    <div class="button-row">
+      <button type="submit" class="btn primary">Save</button>
+      <a routerLink="/tasks" class="btn">Back</a>
+    </div>
+  </form>
+</div>

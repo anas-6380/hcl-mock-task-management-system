@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-header-row">
+    <h2>Tasks</h2>
+    <a routerLink="/tasks/new" class="btn primary">Add Task</a>
+  </div>
+
+  @if (isLoading) {
+    <p>Loading tasks...</p>
+  } @else if (errorMessage) {
+    <p class="error-message">{{ errorMessage }}</p>
+  } @else if (tasks.length === 0) {
+    <p>No tasks found. Click "Add Task" to create your first task.</p>
+  } @else {
+    <table class="task-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (task of tasks; track task.id) {
+          <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description || '-' }}</td>
+            <td>
+              <button class="btn small" (click)="toggleStatus(task)">
+                {{ task.isCompleted ? 'Completed' : 'Pending' }}
+              </button>
+            </td>
+            <td>{{ task.createdAt | date: 'medium' }}</td>
+            <td class="action-cell">
+              <a [routerLink]="['/tasks', task.id, 'edit']" class="btn small">Edit</a>
+              <button class="btn danger small" (click)="deleteTask(task.id)">Delete</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

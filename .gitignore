@@ -1,0 +1,17 @@
+# Keep this local only
+COMPLETE_PROJECT_README.md
+
+# Build outputs
+backend/bin/
+backend/obj/
+frontend/dist/
+frontend/.angular/
+
+# Dependencies
+frontend/node_modules/
+
+# Logs
+*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*

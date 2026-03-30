@@ -1,0 +1,45 @@
+:host {
+	display: block;
+}
+
+.page {
+	min-height: 100vh;
+}
+
+.page-header {
+	background: #1f4a8a;
+	color: #ffffff;
+	padding: 18px 24px;
+}
+
+.header-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+}
+
+.page-header h1 {
+	margin: 0;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.mvc-link {
+	color: #1f4a8a;
+	background: #ffffff;
+	text-decoration: none;
+	padding: 8px 12px;
+	border-radius: 8px;
+	font-weight: 600;
+	font-size: 14px;
+	white-space: nowrap;
+}
+
+.mvc-link:hover {
+	background: #e8eef8;
+}
+
+.page-content {
+	padding: 24px;
+}
